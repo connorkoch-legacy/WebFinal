@@ -9,17 +9,23 @@
 
     <script>
     function validateForm() {
-        var x = document.forms["loginForm"]["username"].value;
-        if (x == ) {
-            alert("Name must be filled out");
+        var email = document.forms["loginForm"]["email"].value;
+        var pw = document.forms["loginForm"]["password"].value;
+        if (!(/\w+@\w+\.\w+/.test(email))) {
+            alert("Email must be filled out with correct email syntax");
             return false;
         }
+        else if (!(/^[a-zA-Z0-9]+$/.test(pw))) {
+            alert("Password must be filled out, characters and digits only.");
+            return false;
+        }
+        return true;
     }
     </script>
 </head>
 <body>
     <br><br><br><br>
-    <form name="loginForm" action="index.php" method="post" class="loginForm">
+    <form name="loginForm" action="index.php" method="post" class="loginForm" onsubmit="return validateForm()">
         <div class="container">
             <h2>Sign In</h2>
             <img src="loginIcon.jpg" alt="image" class="logo">
@@ -37,9 +43,9 @@
                 </label>
             </div>
             <div class="accountbar">
-                <a href="#">Create Account</a>
+                <a href="createAccount.php">Create Account</a>
                 ---
-                <a href="#">Forgot Password?</a>
+                <a href="forgotPassword.php">Forgot Password?</a>
             </div>
         </div>
     </form>
