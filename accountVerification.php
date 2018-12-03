@@ -17,15 +17,45 @@
         notifyUser();
         return true;
     }
+    function validateCode() {
+        if(document.forms["pwForm"]["verify"].value === '<?php echo $_POST["code"]?>'){
+                <?php
+		$conn = new mysqli("f18_connorkoch", "connorkoch", "KQQUYCQG", "CSCI445") or die($conn->error);
+     
+		$stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
+                $stmt->bind_param("ss", $user, $pass);
+        	$user = $_POST["username"];
+            	$pass = $_POST["password"]; 
+                $stmt->execute();
+            
+                echo "notifyUser();";
+                echo "return true;";
+		?>
+		return true;
+         }
+         else {
+             return false;
+         }
+    }
     function notifyUser() {
         var email = document.forms["pwForm"]["email"].value;
+        <?php
+	// the message
+	$msg = "Your verification code is: " . $_POST["code"];
+
+	// use wordwrap() if lines are longer than 70 characters
+	$msg = wordwrap($msg,70);
+
+	// send email
+	mail("cko.wolf@gmail.com","Verification Code",$msg);
+	?>
         alert("An email has been sent to " + email + ". Please check your inbox.");
     }
     </script>
 </head>
 <body>
     <br><br><br><br>
-    <form name="pwForm" action="loginPage.php" method="post" class="loginForm" onsubmit="return validateForm()">
+    <form name="pwForm" action="loginPage.php" method="post" class="loginForm" onsubmit="return validateCode()">
         <div class="container">
             <h2>Verify Account</h2>
             <img src="loginIcon.jpg" alt="image" class="logo">
