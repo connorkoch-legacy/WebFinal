@@ -27,6 +27,32 @@
 				t = setTimeout(logout, 15 * 60 * 1000) //set timeout time to 15 minutes of idle
 			}
 		};
+		
+		function validateForm() {
+			var user = document.forms["frm"]["username"].value;
+			var pw = document.forms["frm"]["password"].value;
+			var pw2 = document.forms["frm"]["password2"].value;
+			if (!(/^[a-zA-Z0-9]+$/.test(pw))) {
+				alert("Username must be filled out, characters and digits only.");
+				return false;
+			}
+			else if (!(/\w+@\w+\.\w+/.test(email))) {
+				alert("Email must be filled out with correct email syntax");
+				return false;
+			}
+			else if (!(/^[a-zA-Z0-9]+$/.test(pw))) {
+				alert("Password must be filled out, characters and digits only.");
+				return false;
+			}
+			if(pw !== pw2){
+				alert("Passwords do not match. Please try again.");
+				return false;
+			}
+			
+			
+			
+			return true;
+		}
 	</script>
 </head>
 
@@ -42,7 +68,7 @@
 		</div>
 
 		<div id="content">
-			<form id="frm" action="result.php" method="post" name="frm">
+			<form id="frm" action="result.php" method="post" name="frm" onsubmit="return validateForm()">
 				<div class="box">
 					<h1>Enter your Sex, Weight, Height, and age below. </h1>
 					<p>This will help us accuratly determine your strength compared to other athletes with your same body type.</p>
@@ -67,7 +93,7 @@
 						<label>Squat:</label> <input type="text" name="squat" required> <br>
 						<label>Deadlift:</label> <input type="text" name="deadlift" required> <br>
 						<label>Overhead Press:</label> <input type="text" name="overheadpress" required> <br>
-						<label>Pulls up:</label> <input type="text" name="pullup" required>
+						<label>Pull up:</label> <input type="text" name="pullup" required>
 					</p>
 				</div>
 

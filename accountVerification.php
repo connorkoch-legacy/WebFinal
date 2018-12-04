@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Weight</title>
+    <title>Account Verification</title>
     <meta charset="utf-8">
-    <meta name="author" content="Weight">
+    <meta name="author" content="verification">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="layout.css">
 

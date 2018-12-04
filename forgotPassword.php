@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Weight</title>
+    <title>Forgot Password</title>
     <meta charset="utf-8">
-    <meta name="author" content="Weight">
+    <meta name="author" content="password">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="layout.css">
 
@@ -14,7 +14,44 @@
             alert("Email must be filled out with correct email syntax");
             return false;
         }
-        notifyUser();
+		if (<?php
+		
+			$conn = new mysqli("f18_connorkoch", "connorkoch", "KQQUYCQG", "CSCI445") or die($conn->error);
+            
+            //prepare and bind
+            echo "alert(" . isset($_POST['username's]) . ");";
+           
+            $email = $_POST["email"];
+            
+            $stmt = $conn->prepare("SELECT email FROM users WHERE email = ?");
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+            if($result->num_rows === 0){
+				echo "true";
+            }
+            else{
+				echo "false";
+            }
+			?>
+		){
+			
+			alert("Email does not exist. Enter in a valid email");
+			return false;
+			
+		}
+		<?php
+		// TODO: Enter a link for a reset link page
+		$msg = "Here is your password reset link: ";
+
+		// use wordwrap() if lines are longer than 70 characters
+		$msg = wordwrap($msg,70);
+
+		// send email
+		mail($_POST["email"],"Password Reset",msg);
+		?>
+		notifyUser();
         return true;
     }
     function notifyUser() {
@@ -36,7 +73,7 @@
             <input class="textin" type="text" placeholder="Enter Email" name="email" required>
 
             <div class="submitbar">
-                <button class="login" type="submit">Send Email</button>
+                <button class="login" type="submit">Verify Email</button>
             </div>
             <div class="accountbar">
                 <a href="loginPage.php">Return to login</a>

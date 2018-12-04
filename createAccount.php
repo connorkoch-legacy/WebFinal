@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Weight</title>
+    <title>Create an Account</title>
     <meta charset="utf-8">
-    <meta name="author" content="Weight">
+    <meta name="author" content="create">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="layout.css">
 
@@ -13,7 +13,7 @@
         var email = document.forms["accountForm"]["email"].value;
         var pw = document.forms["accountForm"]["password"].value;
         var pw2 = document.forms["accountForm"]["password2"].value;
-        if (!(/^[a-zA-Z0-9]+$/.test(pw))) {
+        if (!(/^[a-zA-Z0-9]+$/.test(user))) {
             alert("Username must be filled out, characters and digits only.");
             return false;
         }
