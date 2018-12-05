@@ -1,5 +1,16 @@
+
+<?php
+	session_start();	
+?>
+
 <!DOCTYPE>
 <html lang="en-US">
+<?php
+	if(!$_SESSION["login"]){
+		header("Location: loginPage.php");
+		exit();
+	}
+?>
 
 <head>
 	<title>Fitness</title>
@@ -57,6 +68,7 @@
 </head>
 
 <body onload="inactivityTime()">
+
 	<div id="wrapper">
 		<?php
             $answer = $_COOKIE['user'];

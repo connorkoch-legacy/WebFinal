@@ -1,5 +1,15 @@
+
+<?php
+// destroy the session
+    session_destroy(); 
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html>
+<?php
+    $_SESSION["login"] = false;
+?>
 <head>
     <title>Weight</title>
     <meta charset="utf-8">
@@ -19,6 +29,12 @@
             alert("Password must be filled out, characters and digits only.");
             return false;
         }
+        <?php
+            $correct = false;
+            if($correct){
+                $_SESSION["login"] = true;
+            }
+        ?>
         return true;
     }
     </script>
