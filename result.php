@@ -126,23 +126,6 @@
 								{axis:"Overhead Press",value:ohp},
 								{axis:"Pull up",value:pullup}
 								]
-								
-								,
-								[
-								{axis:"Squat",value:.42},
-								{axis:"Bench",value:.59},
-								{axis:"Deadlift",value:.46},
-								{axis:"Overhead Press", value:.23},
-								{axis:"Pull up",value:.35}
-								],
-								[
-								{axis:"Squat",value:.68},
-								{axis:"Bench",value:.37},
-								{axis:"Deadlift",value:.87},
-								{axis:"Overhead Press", value:.89},
-								{axis:"Pull up",value:.23}
-								]
-
 						 		];
 							
 						//////////////////////////////////////////////////////////////

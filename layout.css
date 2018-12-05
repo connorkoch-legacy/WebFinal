@@ -24,14 +24,16 @@ body{
 					LINK BAR
 *******************************************************/
 #nav{
-	padding-left: 100px;
-	margin: 0px -10px;
+	width: 100%;
+	/*padding-left: 100px;
+	margin: 0px -10px;*/
 	background-color: #696969;
 }
 #nav ul{
 	list-style-type: none;
 	margin: 0px;
 	padding: 16px;
+	padding-left: 105px;
 	overflow: hidden;
 }
 #nav ul li{
@@ -61,6 +63,10 @@ body{
 	padding: 10px 30px;
 	margin: 10px 105px;
 }
+
+.box #height1, #height2{
+	width: 20%;
+}
 /*******************************************************
 					FOOTER
 *******************************************************/
@@ -72,10 +78,14 @@ body{
 	position:absolute;
 	bottom:0;
 	left:0;
+	/*padding-left: 105px;*/
+}
+
+#footer p {
 	padding-left: 105px;
 }
 /*******************************************************
-					Aligning the forms together
+				Aligning the forms together
 *******************************************************/
 textarea{
 	height: 45%;

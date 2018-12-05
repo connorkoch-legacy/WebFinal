@@ -44,10 +44,28 @@
             <img src="loginIcon.jpg" alt="image" class="logo">
 
             <label class="labe" for="email"><b>Email</b></label>
-            <input class="textin" type="text" placeholder="Enter Email" name="email" required>
+            <?php
+            if(!isset($_COOKIE['email'])) {
+                echo "<input class=\"textin\" type=\"text\" placeholder=\"Enter Email\" name=\"email\" required>";
+            } else {
+                $answer = $_COOKIE['email'];
+                echo "<input class=\"textin\" type=\"text\" placeholder=\"Enter Email\" name=\"email\" value=\"$answer\"required>";
+            }
+            ?>
+
 
             <label class="labe" for="psw"><b>Password</b></label>
-            <input class="textin" type="password" placeholder="Enter Password" name="password" required>
+            <?php
+            if(!isset($_COOKIE['pass'])) {
+                $answer = $_COOKIE['pass'];
+                echo "<input class=\"textin\" type=\"password\" placeholder=\"Enter Password\" name=\"password\"required>";
+            } else {
+                $answer = $_COOKIE['pass'];
+                echo "<input class=\"textin\" type=\"password\" placeholder=\"Enter Password\" name=\"password\" value=\"$answer\"required>";
+            }
+
+            ?>
+            
 
             <div class="submitbar">
                 <button class="login" type="submit">Login</button>
