@@ -32,11 +32,14 @@
 
         document.cookie = "user = "+user;
         document.cookie = "email = "+email;
+        document.cookie = "pass = "+pw;
         <?php
             $user = $_COOKIE['user'];
             $email = $_COOKIE['email'];
+            $pass = $_COOKIE['pass'];
             setcookie("user",$user,time()+(86400*30),"/");
             setcookie("email",$email,time()+(86400*30),"/");
+            setcookie("pass",$pass,time()+(86400*30),"/");
             // Create connection
             // $conn = new mysqli("localhost", "root", "", "CSCI445") or die($conn->error);
             //
@@ -87,24 +90,11 @@
             <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
             <label class="labe" for="username"><b>Username</b></label>
-            <?php
-            if(!isset($_COOKIE['user'])) {
-                echo "<input class=\"textin\" type=\"text\" placeholder=\"Enter Username\" name=\"username\" required>";
-            } else {
-                $answer = $_COOKIE['user'];
-                echo "<input class=\"textin\" type=\"text\" placeholder=\"Enter Username\" name=\"username\" value=\"$answer\" required>";
-            }
-            ?>
+            <input class ="textin" type="text" placeholder="Enter Username" name="username" required>;
 
             <label class="labe" for="email"><b>Email</b></label>
-            <?php
-            if(!isset($_COOKIE['email'])) {
-                echo "<input class=\"textin\" type=\"text\" placeholder=\"Enter Email\" name=\"email\" required>";
-            } else {
-                $answer = $_COOKIE['email'];
-                echo "<input class=\"textin\" type=\"text\" placeholder=\"Enter Email\" name=\"email\" value=\"$answer\"required>";
-            }
-            ?>
+            <input class ="textin" type="text" placeholder="Enter Email" name="email" required>;
+        
 
             <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 

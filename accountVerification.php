@@ -48,7 +48,7 @@
 	$msg = wordwrap($msg,70);
 
 	// send email
-	mail("liaojessy18@gmail.com","Verification Code",$msg);
+	mail("jessyliao@mymail.mines.edu","Verification Code",$msg);
 	?>
         alert("An email has been sent to " + email + ". Please check your inbox.");
     }
