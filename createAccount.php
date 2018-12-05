@@ -29,7 +29,14 @@
             alert("Passwords do not match. Please try again.");
             return false;
         }
+
+        document.cookie = "user = "+user;
+        document.cookie = "email = "+email;
         <?php
+            $user = $_COOKIE['user'];
+            $email = $_COOKIE['email'];
+            setcookie("user",$user,time()+(86400*30),"/");
+            setcookie("email",$email,time()+(86400*30),"/");
             // Create connection
             // $conn = new mysqli("localhost", "root", "", "CSCI445") or die($conn->error);
             //
@@ -77,11 +84,29 @@
 
             <p>Once an account is created, an email will be sent to activate your account.</p>
 
+            <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
             <label class="labe" for="username"><b>Username</b></label>
-            <input class="textin" type="text" placeholder="Enter Username" name="username" required>
+            <?php
+            if(!isset($_COOKIE['user'])) {
+                echo "<input class=\"textin\" type=\"text\" placeholder=\"Enter Username\" name=\"username\" required>";
+            } else {
+                $answer = $_COOKIE['user'];
+                echo "<input class=\"textin\" type=\"text\" placeholder=\"Enter Username\" name=\"username\" value=\"$answer\" required>";
+            }
+            ?>
 
             <label class="labe" for="email"><b>Email</b></label>
-            <input class="textin" type="text" placeholder="Enter Email" name="email" required>
+            <?php
+            if(!isset($_COOKIE['email'])) {
+                echo "<input class=\"textin\" type=\"text\" placeholder=\"Enter Email\" name=\"email\" required>";
+            } else {
+                $answer = $_COOKIE['email'];
+                echo "<input class=\"textin\" type=\"text\" placeholder=\"Enter Email\" name=\"email\" value=\"$answer\"required>";
+            }
+            ?>
+
+            <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
             <label class="labe" for="psw"><b>Password</b></label>
             <input class="textin" type="password" placeholder="Enter Password" name="password" required>

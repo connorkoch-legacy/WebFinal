@@ -20,7 +20,7 @@
     function validateCode() {
         if(document.forms["pwForm"]["verify"].value === '<?php echo $_POST["code"]?>'){
                 <?php
-		$conn = new mysqli("f18_connorkoch", "connorkoch", "KQQUYCQG", "CSCI445") or die($conn->error);
+		$conn = new mysqli("127.0.0.1", "jetthy", "test", "f18_jessyliao") or die($conn->error);
      
 		$stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
                 $stmt->bind_param("ss", $user, $pass);
@@ -30,6 +30,7 @@
             
                 echo "notifyUser();";
                 echo "return true;";
+
 		?>
 		return true;
          }
@@ -47,7 +48,7 @@
 	$msg = wordwrap($msg,70);
 
 	// send email
-	mail("cko.wolf@gmail.com","Verification Code",$msg);
+	mail("liaojessy18@gmail.com","Verification Code",$msg);
 	?>
         alert("An email has been sent to " + email + ". Please check your inbox.");
     }
