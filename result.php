@@ -1,3 +1,12 @@
+
+<?php
+	session_start();	
+	if($_SESSION["login"]){
+		header("loginPage.php");
+		exit();
+	}
+?>
+
 <!DOCTYPE HTML>
 <html lang="en-US">
 
