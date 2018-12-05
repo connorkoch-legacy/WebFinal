@@ -58,7 +58,10 @@
 
 <body onload="inactivityTime()">
 	<div id="wrapper">
-		<h1 id="title">TEST V1</h1>
+		<?php
+            $answer = $_COOKIE['user'];
+            echo "<h1 id=\"title\">Welcome $answer</h1>"
+        ?>
 		<div id="nav">
 			<ul>
 				<li><a href="index.php">Home</a></li>
@@ -80,7 +83,7 @@
 						</select>
 						<br>
 						<label>Weight:</label> <input type="text" name="weight" required> <br>
-						<label>Height:</label> <input type="text" name="height"placeholder="optional"> <input type="text" name="inch"placeholder="optional"> <br>
+						<label>Height:</label> <input id="height1" type="text" name="height"placeholder="optional"> <input id="height2" type="text" name="inch"placeholder="optional"> <br>
 						<label>Age:</label> <input type="text" name="age" placeholder="optional">
 					</p>
 				</div>
