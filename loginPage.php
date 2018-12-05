@@ -19,26 +19,13 @@
             alert("Password must be filled out, characters and digits only.");
             return false;
         }
-	
-	<?php
-		    //Create connection
-	            $conn = new mysqli("f18_connorkoch", "connorkoch", "KQQUYCQG", "CSCI445") or die($conn->error);
-		    echo "alert('".$_POST["email"]."');";
-		    // prepare and bind
-		    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ? AND password = ?");
-		?>;
-	return false;
-	if (flag){
-		       alert("Information doesn't match. Please check email and password.");
-		       return false;	
-		   }
         return true;
     }
     </script>
 </head>
 <body>
     <br><br><br><br>
-    <form name="loginForm" action="index.php" method="post" class="loginForm" onsubmit="return validateForm()">
+    <form name="loginForm" action="loginVerification.php" method="post" class="loginForm" onsubmit="return validateForm()">
         <div class="container">
             <h2>Sign In</h2>
             <img src="loginIcon.jpg" alt="image" class="logo">
