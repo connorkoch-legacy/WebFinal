@@ -5,15 +5,11 @@
 
 <!DOCTYPE HTML>
 <html lang="en-US">
-<?php
-	if(!isset($_SESSION['login'])){ //if login in session is not set
-		header("Location: loginPage.php");
-	}
-?>
+
 
 <?php
 
-	$conn = new mysqli("localhost", "root", "", "CSCI445") or die($conn->error);
+	$conn = new mysqli("127.0.0.1", "jetthy", "test", "f18_jessyliao") or die($conn->error);
 
 	$stmt = $conn->prepare("INSERT INTO lifts (lift_id, day, bench, squat, deadlift, overhead, pullups) VALUES (?, ?, ?, ?, ?, ?, ?);");
 	$stmt->bind_param("isiiiii", $id, $date, $bench, $squat, $deadlift, $overheadpress, $pullup);
@@ -51,8 +47,7 @@
 			<div id="nav">
 				<ul>
 					<li><a href="index.php">Home</a></li>
-					<li><a href="about.php">About</a></li>
-					<li><a href="contact.php">Contact</a></li>
+					<li><a href="accountPage.php">Account</a></li>
 				</ul>
 			</div>
 

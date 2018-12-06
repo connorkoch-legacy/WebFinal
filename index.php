@@ -6,7 +6,7 @@
 <!DOCTYPE>
 <html lang="en-US">
 <?php
-	if(!isset($_SESSION['login'])){ //if login in session is not set
+	if($_SESSION['login'] == "false"){ //if login in session is not set
 		header("Location: loginPage.php");
 	}
 ?>

@@ -36,14 +36,13 @@
 		        <?php
 		        	$user = $_SESSION['user'];
 		        	$email = $_SESSION['email'];
-					$conn = new mysqli("localhost", "root", "", "CSCI445");
+					$conn = new mysqli("127.0.0.1", "jetthy", "test", "f18_jessyliao");
 					// prepare and bind
-					$stmt = $conn->prepare("UPDATE users SET password = $pass WHERE username = ? AND email = ?;");
-					$stmt->bind_param("ss", $user, $email);
-					$stmt->execute();
-
-					$result = $stmt->get_result();
-					$row = $result->fetch_assoc();
+					$stmt = $conn->prepare("UPDATE users SET password = ? WHERE username = ? AND email = ?;");
+					$stmt->bind_param("sss", $pass, $user, $email);
+					if(!$stmt->execute()){
+						echo "Error loading data into database.";
+					}
 				?>
 
 		    }

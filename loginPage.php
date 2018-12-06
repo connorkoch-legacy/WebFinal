@@ -2,6 +2,7 @@
 <?php
 session_destroy();
 session_start();
+$_SESSION["login"] = "false";
 ?>
 
 <!DOCTYPE html>
@@ -50,6 +51,10 @@ session_start();
 
             <label class="labe" for="psw"><b>Password</b></label>
             <?php
+            $_SESSION["login"] = "false";
+            $fff = $_SESSION["login"];
+            echo "<p>asdfasdf $fff</p>";
+            
             if(!isset($_COOKIE['pass'])) {
                 $answer = $_COOKIE['pass'];
                 echo "<input class=\"textin\" type=\"password\" placeholder=\"Enter Password\" name=\"password\"required>";
