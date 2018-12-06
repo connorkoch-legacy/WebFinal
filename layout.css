@@ -54,6 +54,12 @@ body{
 	color: white;
 	background-color: #7F7F7F;
 }
+#logout{
+	margin-right: 120px;
+	float: right;
+}
+
+
 /*******************************************************
 					BOXES CONTAINING FORMS
 *******************************************************/
