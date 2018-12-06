@@ -1,15 +1,15 @@
 
 <?php
 	session_start();
-	if($_SESSION["login"]){
-		header("loginPage.php");
-		exit();
-	}
 ?>
 
 <!DOCTYPE HTML>
 <html lang="en-US">
-
+<?php
+	if(!isset($_SESSION['login'])){ //if login in session is not set
+		header("Location: loginPage.php");
+	}
+?>
 	<head>
 		<title>Fitness</title>
 		<meta charset="UTF-8">
