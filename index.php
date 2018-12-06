@@ -13,7 +13,7 @@
 
 <head>
 	<title>Fitness</title>
-	<meta charset="UTF-8">
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="layout.css?<?php echo time(	); ?>">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300'rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Raleway'rel='stylesheet' type='text/css'>
@@ -75,9 +75,8 @@
         ?>
 		<div id="nav">
 			<ul>
-				<li><a href="index.php">Home</a></li>
-				<li><a href="about.php">About</a></li>
-				<li><a href="contact.php">Contact</a></li>
+				<li><a href="#index.php">Home</a></li>
+				<li><a href="accountPage.php">Account</a></li>
 			</ul>
 		</div>
 
@@ -120,7 +119,8 @@
 		<script src="radarChart.js"></script>
 
 		<div id="footer">
-			<p>Created by Jessy Liao</p>
+			<p>Created by Jessy, Alan, & Connor<a id="logout" href="loginPage.php">Logout</a></p>
+
 		</div>
 	</div>
 </body>
