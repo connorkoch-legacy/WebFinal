@@ -10,6 +10,27 @@
 		header("Location: loginPage.php");
 	}
 ?>
+
+<?php
+
+	$conn = new mysqli("localhost", "root", "", "CSCI445") or die($conn->error);
+
+	$stmt = $conn->prepare("INSERT INTO lifts (lift_id, day, bench) VALUES (?, ?, ?);");
+	$stmt->bind_param("isi", $id, $date, $bench);
+	$id = $_SESSION["id"];
+	$date = date('Y-m-d');
+	$bench = $_POST["bench"];
+	$squat = $_POST["squat"];
+	$deadlift = $_POST["deadlift"];
+	$overheadpress = $_POST["overheadpress"];
+	$pullup = $_POST["pullup"];
+	if($stmt->execute()){
+		echo "DOG";
+	}
+
+?>
+
+
 	<head>
 		<title>Fitness</title>
 		<meta charset="UTF-8">
@@ -53,7 +74,7 @@
 
 						var i = 1;
 
-						var name = "JESSY";
+						var name = "<?php echo $_SESSION["user"];?>";
 						var gender = "<?php echo $list?>";
 						var weight = <?php echo $_POST["weight"];?>;
 						var heightt = "<?php echo $_POST["height"];?>";
@@ -196,7 +217,7 @@
 			</div>
 
 			<div id="footer">
-				<p>Created by Jessy Liao</p>
+				<p>Created by Jessy Liao, Connor Koch, Alan Son</p>
 			</div>
 		</div>
 	</body>

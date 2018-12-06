@@ -11,16 +11,18 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="layout.css">
 
+    <?php
+    // the message
+    $msg = "Your verification code is: " . $_POST["code"];
+
+    // use wordwrap() if lines are longer than 70 characters
+    $msg = wordwrap($msg,70);
+
+    // send email
+    mail($_POST["email"],"Verification Code",$msg);
+    ?>
+
     <script>
-    function validateForm() {
-        var email = document.forms["pwForm"]["email"].value;
-        if (!(/\w+@\w+\.\w+/.test(email))) {
-            alert("Email must be filled out with correct email syntax");
-            return false;
-        }
-        notifyUser();
-        return true;
-    }
     function validateCode() {
         if(document.forms["pwForm"]["verify"].value === '<?php echo $_POST["code"]?>'){
             return true;
@@ -29,20 +31,8 @@ session_start();
         return false;
 
     }
-    function notifyUser() {
-        var email = document.forms["pwForm"]["email"].value;
-        <?php
-        // the message
-        $msg = "Your verification code is: " . $_POST["code"];
 
-        // use wordwrap() if lines are longer than 70 characters
-        $msg = wordwrap($msg,70);
 
-        // send email
-        mail("cko.wolf@gmail.com","Verification Code",$msg);
-        ?>
-        alert("An email has been sent to " + email + ". Please check your inbox.");
-    }
     </script>
 </head>
 

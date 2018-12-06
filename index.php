@@ -70,7 +70,7 @@
 
 	<div id="wrapper">
 		<?php
-            $answer = $_COOKIE['user'];
+            $answer = $_SESSION['user'];
             echo "<h1 id=\"title\">Welcome $answer</h1>"
         ?>
 		<div id="nav">

@@ -29,8 +29,12 @@ if($result->num_rows === 0){
 
 }else{
 
+	$_COOKIE['email'] = $_POST["email"];
+	$_COOKIE['pass'] = $_POST["password"];
+
 	$_SESSION["login"] = true;
 	$_SESSION["id"] = $row["id"];
+	$_SESSION["user"] = $row["username"];
 	$_SESSION["email"] = $_POST["email"];
 	echo "window.location = 'index.php';";
 

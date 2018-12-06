@@ -67,10 +67,10 @@ session_start();
             <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
             <label class="labe" for="username"><b>Username</b></label>
-            <input class ="textin" type="text" placeholder="Enter Username" name="username" required>;
+            <input class ="textin" type="text" placeholder="Enter Username" name="username" required>
 
             <label class="labe" for="email"><b>Email</b></label>
-            <input class ="textin" type="text" placeholder="Enter Email" name="email" required>;
+            <input class ="textin" type="text" placeholder="Enter Email" name="email" required>
 
 
             <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
