@@ -28,12 +28,9 @@ if($result->num_rows === 0){
 	echo "window.location = 'loginPage.php';";
 
 }else{
-
 	$_SESSION["login"] = true;
-	$_SESSION["id"] = $row["id"];
 	$_SESSION["email"] = $_POST["email"];
 	echo "window.location = 'index.php';";
-
 }
 
 ?>

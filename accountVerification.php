@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,44 +23,40 @@
     }
     function validateCode() {
         if(document.forms["pwForm"]["verify"].value === '<?php echo $_POST["code"]?>'){
-                <?php
-		$conn = new mysqli("127.0.0.1", "jetthy", "test", "f18_jessyliao") or die($conn->error);
-     
-		$stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
-                $stmt->bind_param("ss", $user, $pass);
-        	$user = $_POST["username"];
-            	$pass = $_POST["password"]; 
-                $stmt->execute();
-            
-                echo "notifyUser();";
-                echo "return true;";
+            return true;
+        }
 
-		?>
-		return true;
-         }
-         else {
-             return false;
-         }
+        return false;
+
     }
     function notifyUser() {
         var email = document.forms["pwForm"]["email"].value;
         <?php
-	// the message
-	$msg = "Your verification code is: " . $_POST["code"];
+        // the message
+        $msg = "Your verification code is: " . $_POST["code"];
 
-	// use wordwrap() if lines are longer than 70 characters
-	$msg = wordwrap($msg,70);
+        // use wordwrap() if lines are longer than 70 characters
+        $msg = wordwrap($msg,70);
 
-	// send email
-	mail("jessyliao@mymail.mines.edu","Verification Code",$msg);
-	?>
+        // send email
+        mail("cko.wolf@gmail.com","Verification Code",$msg);
+        ?>
         alert("An email has been sent to " + email + ". Please check your inbox.");
     }
     </script>
 </head>
+
+<?php
+
+    $_SESSION["user"] = $_POST["username"];
+    $_SESSION["password"] = $_POST["password"];
+    $_SESSION["email"] = $_POST["email"];
+
+?>
+
 <body>
     <br><br><br><br>
-    <form name="pwForm" action="loginPage.php" method="post" class="loginForm" onsubmit="return validateCode()">
+    <form name="pwForm" action="accountCreation.php" method="post" class="loginForm" onsubmit="return validateCode()">
         <div class="container">
             <h2>Verify Account</h2>
             <img src="loginIcon.jpg" alt="image" class="logo">

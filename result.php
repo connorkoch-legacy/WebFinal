@@ -1,6 +1,6 @@
 
 <?php
-	session_start();	
+	session_start();
 	if($_SESSION["login"]){
 		header("loginPage.php");
 		exit();
@@ -16,17 +16,17 @@
 		<link rel="stylesheet" type="text/css" href="layout.css?<?php echo time(); ?>">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-	
+
 		<!-- D3.js -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
-	
+
 	</head>
-	
+
 	<body>
 		<div id="wrapper">
-	
+
 			<h1 id="title">TEST V1</h1>
-	
+
 			<div id="nav">
 				<ul>
 					<li><a href="index.php">Home</a></li>
@@ -34,23 +34,23 @@
 					<li><a href="contact.php">Contact</a></li>
 				</ul>
 			</div>
-	
+
 			<div id="content">
 				<div class="box">
 					<div class="radarChart"></div>
-					
+
 					<script src="radarChart.js"></script>
 					<script>
 						//////////////////////////////////////////////////////////////
 						//////////////////////// Set-Up //////////////////////////////
 						//////////////////////////////////////////////////////////////
-		
+
 						var margin = {top: 100, right: 100, bottom: 100, left: 100},
 						width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
 						height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
 						//-----------------------------------------------
 						 <?php $list = $_POST['listt'];?>
-						
+
 						var i = 1;
 
 						var name = "JESSY";
@@ -59,13 +59,13 @@
 						var heightt = "<?php echo $_POST["height"];?>";
 						var age = "<?php echo $_POST["age"];?>";
 
-						
+
 						var squat;
 						var bench;
 						var deadlift;
 						var ohp;
 						var pullup;
-						
+
 						var insquat = <?php echo $_POST["squat"];?>;
 						var inbench = <?php echo $_POST["bench"];?>;
 						var indeadlift = <?php echo $_POST["deadlift"];?>;
@@ -113,20 +113,20 @@
 								pullup = NaN;
 							}//else... still in progress...
 						}
-							
+
 						squat = insquat/squat;
 						bench = inbench/bench;
 						deadlift = indeadlift/deadlift;
 						ohp = .58;//inohp/ohp;
 						pullup = .326;//inpullup/pullup;
-							
-							
+
+
 						//////////////////////////////////////////////////////////////
 						////////////////////////// Data //////////////////////////////
 						//////////////////////////////////////////////////////////////
-						
-						var LegendOptions = ['Banana','Apple','Dragon'];	
-							
+
+						var LegendOptions = ['Banana','Apple','Dragon'];
+
 						var data = [
 								[
 								{axis:"Squat",value:squat},
@@ -136,11 +136,11 @@
 								{axis:"Pull up",value:pullup}
 								]
 						 		];
-							
+
 						//////////////////////////////////////////////////////////////
 						//////////////////// Draw the Chart //////////////////////////
 						//////////////////////////////////////////////////////////////
-							
+
 						var color = d3.scale.ordinal()
 						.range(["#7DCE94","#402785","#0E91A1"]);
 						//Green, purp ,darkblu
@@ -156,10 +156,10 @@
 						//Call function to draw the Radar chart
 						RadarChart(".radarChart", data, radarChartOptions);
 
-						
+
 						</script>
 				</div>
-				
+
 				<div class="box">
 					<div id="colorBox"></div>
 					<p id="colorBoxLegend"></p>
@@ -169,17 +169,17 @@
 						//////////////////////////////////////////////////////////////
 						document.getElementById("colorBoxLegend").innerHTML = " "+name;
 					</script>
-					
-					
+
+
 				</div>
-				
+
 				<div class="box">
 					<p id="program"></p>
 					<script>
 						//////////////////////////////////////////////////////////////
 						//////////////////// Recommended Programs ////////////////////
 						//////////////////////////////////////////////////////////////
-							
+
 						if(bench>deadlift && bench>squat){
 							document.getElementById("program").innerHTML = "Work on your squat and deadlift";
 						}else if(deadlift>bench && deadlift>squat){
@@ -188,13 +188,13 @@
 							document.getElementById("program").innerHTML = "Work on your chest and deadlift";
 						}
 
-						
-						
+
+
 					</script>
-	
+
 				</div>
 			</div>
-	
+
 			<div id="footer">
 				<p>Created by Jessy Liao</p>
 			</div>

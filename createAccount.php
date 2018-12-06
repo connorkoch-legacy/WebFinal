@@ -1,3 +1,7 @@
+<?php
+session_destroy();
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,34 +44,7 @@
             setcookie("user",$user,time()+(86400*30),"/");
             setcookie("email",$email,time()+(86400*30),"/");
             setcookie("pass",$pass,time()+(86400*30),"/");
-            // Create connection
-            // $conn = new mysqli("localhost", "root", "", "CSCI445") or die($conn->error);
-            //
-            // // prepare and bind
-            // echo "alert(" . isset($_POST['username's]) . ");";
-            //
-            // $user = $_POST["username"];
-            // $pass = $_POST["password"];
-            //
-            // $stmt = $conn->prepare("SELECT username FROM users WHERE username = ?");
-            // $stmt->bind_param("s", $user);
-            //
-            // $stmt->execute();
-            // $result = $stmt->get_result();
-            // $row = $result->fetch_assoc();
-            // if($result->num_rows === 0){
-            //     $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
-            //     $stmt->bind_param("ss", $user, $pass);
-            //
-            //     $stmt->execute();
-            //
-            //     echo "notifyUser();";
-            //     echo "return true;";
-            // }
-            // else{
-            //     echo "alert('This username already exists. Please choose another.');";
-            //     echo "return false;";
-            // }
+
             echo "return notifyUser();";
 
         ?>
@@ -94,7 +71,7 @@
 
             <label class="labe" for="email"><b>Email</b></label>
             <input class ="textin" type="text" placeholder="Enter Email" name="email" required>;
-        
+
 
             <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 

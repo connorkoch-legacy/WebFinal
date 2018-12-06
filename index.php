@@ -1,14 +1,13 @@
 
 <?php
-	session_start();	
+	session_start();
 ?>
 
 <!DOCTYPE>
 <html lang="en-US">
 <?php
-	if(!$_SESSION["login"]){
+	if(!isset($_SESSION['login'])){ //if login in session is not set
 		header("Location: loginPage.php");
-		exit();
 	}
 ?>
 
@@ -38,7 +37,7 @@
 				t = setTimeout(logout, 15 * 60 * 1000) //set timeout time to 15 minutes of idle
 			}
 		};
-		
+
 		function validateForm() {
 			var user = document.forms["frm"]["username"].value;
 			var pw = document.forms["frm"]["password"].value;
@@ -59,9 +58,9 @@
 				alert("Passwords do not match. Please try again.");
 				return false;
 			}
-			
-			
-			
+
+
+
 			return true;
 		}
 	</script>

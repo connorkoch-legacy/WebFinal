@@ -14,32 +14,12 @@
             alert("Email must be filled out with correct email syntax");
             return false;
         }
-		if (<?php
-		
-			$conn = new mysqli("f18_connorkoch", "connorkoch", "KQQUYCQG", "CSCI445") or die($conn->error);
-            
-            //prepare and bind
-            echo "alert(" . isset($_POST['username's]) . ");";
-           
-            $email = $_POST["email"];
-            
-            $stmt = $conn->prepare("SELECT email FROM users WHERE email = ?");
-            $stmt->bind_param("s", $email);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            $row = $result->fetch_assoc();
-            if($result->num_rows === 0){
-				echo "true";
-            }
-            else{
-				echo "false";
-            }
-			?>
-		){
-			
+
+		if (exists){
+
 			alert("Email does not exist. Enter in a valid email");
 			return false;
-			
+
 		}
 		<?php
 		// TODO: Enter a link for a reset link page
