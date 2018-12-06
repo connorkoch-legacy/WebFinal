@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE>
 <html>
 
@@ -30,6 +33,19 @@
 
 		        //QUERY DATABASE AND UPDATE THE PASSWORD TO NEW PASSWORD
 		        
+		        <?php
+		        	$user = $_SESSION['user'];
+		        	$email = $_SESSION['email'];
+					$conn = new mysqli("localhost", "root", "", "CSCI445");
+					// prepare and bind
+					$stmt = $conn->prepare("UPDATE users SET password = $pass WHERE username = ? AND email = ?;");
+					$stmt->bind_param("ss", $user, $email);
+					$stmt->execute();
+
+					$result = $stmt->get_result();
+					$row = $result->fetch_assoc();
+				?>
+
 		    }
 
 		</script>
