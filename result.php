@@ -15,17 +15,17 @@
 
 	$conn = new mysqli("localhost", "root", "", "CSCI445") or die($conn->error);
 
-	$stmt = $conn->prepare("INSERT INTO lifts (lift_id, day, bench) VALUES (?, ?, ?);");
-	$stmt->bind_param("isi", $id, $date, $bench);
+	$stmt = $conn->prepare("INSERT INTO lifts (lift_id, day, bench, squat, deadlift, overhead, pullups) VALUES (?, ?, ?, ?, ?, ?, ?);");
+	$stmt->bind_param("isiiiii", $id, $date, $bench, $squat, $deadlift, $overheadpress, $pullup);
 	$id = $_SESSION["id"];
-	$date = date('Y-m-d');
+	$date = date('Y-m-d H:i:s');
 	$bench = $_POST["bench"];
 	$squat = $_POST["squat"];
 	$deadlift = $_POST["deadlift"];
 	$overheadpress = $_POST["overheadpress"];
 	$pullup = $_POST["pullup"];
-	if($stmt->execute()){
-		echo "DOG";
+	if(!$stmt->execute()){
+		echo "Error loading data into database.";
 	}
 
 ?>

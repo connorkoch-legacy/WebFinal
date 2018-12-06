@@ -33,6 +33,7 @@ if($result->num_rows !== 0){
     $email = $_SESSION["email"];
     $stmt->execute();
 
+	echo "alert('Your account has been created. You may now login.');";
 	echo "window.location = 'loginPage.php';";
 
 }
