@@ -9,7 +9,7 @@ session_start();
 
 <script>
 <?php
-$conn = new mysqli("localhost", "root", "", "CSCI445");
+$conn = new mysqli("127.0.0.1", "jetthy", "test", "f18_jessyliao");
 // prepare and bind
 $stmt = $conn->prepare("SELECT * FROM users WHERE email = ? AND password = ?;");
 $stmt->bind_param("ss", $email, $pass);
@@ -20,7 +20,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
 
-$_SESSION["login"] = true;
+$_SESSION["login"] = "false";
 
 if($result->num_rows === 0){
 
@@ -32,10 +32,11 @@ if($result->num_rows === 0){
 	$_COOKIE['email'] = $_POST["email"];
 	$_COOKIE['pass'] = $_POST["password"];
 
-	$_SESSION["login"] = true;
+	$_SESSION["login"] = "true";
 	$_SESSION["id"] = $row["id"];
 	$_SESSION["user"] = $row["username"];
 	$_SESSION["email"] = $_POST["email"];
+	
 	echo "window.location = 'index.php';";
 
 }

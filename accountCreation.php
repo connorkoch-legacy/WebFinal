@@ -9,7 +9,7 @@ session_start();
 
 <script>
 <?php
-$conn = new mysqli("localhost", "root", "", "CSCI445") or die($conn->error);
+$conn = new mysqli("127.0.0.1", "jetthy", "test", "f18_jessyliao") or die($conn->error);
 
 $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?;");
 $stmt->bind_param("s", $email);

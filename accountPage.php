@@ -23,7 +23,7 @@
 				<div class="box">
 					<a href="accountChangePass.php">Change Password</a>
 					<br>	
-					<a href="accountChangePass.php">Change Password</a>
+					<a href="viewResults.php">View Past Results</a>
 				</div>
 			</div>
 							
