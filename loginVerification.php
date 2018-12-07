@@ -9,7 +9,7 @@ session_start();
 
 <script>
 <?php
-$conn = new mysqli("127.0.0.1", "jetthy", "test", "f18_jessyliao");
+$conn = new mysqli("localhost", "root", "", "CSCI445");
 // prepare and bind
 $stmt = $conn->prepare("SELECT * FROM users WHERE email = ? AND password = ?;");
 $stmt->bind_param("ss", $email, $pass);
@@ -36,7 +36,7 @@ if($result->num_rows === 0){
 	$_SESSION["id"] = $row["id"];
 	$_SESSION["user"] = $row["username"];
 	$_SESSION["email"] = $_POST["email"];
-	
+
 	echo "window.location = 'index.php';";
 
 }

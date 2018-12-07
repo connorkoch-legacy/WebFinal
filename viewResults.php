@@ -17,10 +17,10 @@
 				var dayJ = document.forms["loginForm"]["day"].value;
 				document.cookie = "day = "+dayJ;
 				<?php
-				$servername = "127.0.0.1";
-				$username = "jetthy";
-				$password = "test";
-				$dbname = "f18_jessyliao";
+				$servername = "localhost";
+				$username = "root";
+				$password = "";
+				$dbname = "CSCI445";
 
 				// Create connection
 				$conn = new mysqli($servername, $username, $password, $dbname);
@@ -59,7 +59,7 @@
 			}
 		</script>
 	</head>
-	
+
 	<body>
 		<div id="wrapper">
 			<h1 id="title">TEST V1</h1>
@@ -69,15 +69,15 @@
 					<li><a href="#accountPage.php">Account</a></li>
 				</ul>
 			</div>
-		
+
 			<div id="content">
 				<div class="box">
 					<?php
 
 						$servername = "localhost";
-						$username = "jetthy";
-						$password = "test";
-						$dbname = "f18_jessyliao";
+						$username = "root";
+						$password = "";
+						$dbname = "CSCI445";
 
 						// Create connection
 						$conn = new mysqli($servername, $username, $password, $dbname);
@@ -107,7 +107,7 @@
 
 					?>
 					<form name="loginForm" method="post" action="resultClone.php" class="loginForm" onsubmit="return vForm()">
-				        
+
 				            <input type="textin" type="text" placeholder="Enter Date" name="day"required>
 
 
@@ -115,7 +115,7 @@
 				    </form>
 				</div>
 			</div>
-							
+
 			<div id="footer">
 				<p>Created by Jessy, Alan, & Connor<a id="logout" href="loginPage.php">Logout</a></p>
 

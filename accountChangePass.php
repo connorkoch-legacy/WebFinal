@@ -25,45 +25,26 @@
 		        }
 
 		        document.cookie = "pass = "+pw;
-		        <?php
-		            $pass = $_COOKIE['pass'];
-		            setcookie("pass",$pass,time()+(86400*30),"/");
-		        ?>
-
-
-		        //QUERY DATABASE AND UPDATE THE PASSWORD TO NEW PASSWORD
-		        
-		        <?php
-		        	$user = $_SESSION['user'];
-		        	$email = $_SESSION['email'];
-					$conn = new mysqli("127.0.0.1", "jetthy", "test", "f18_jessyliao");
-					// prepare and bind
-					$stmt = $conn->prepare("UPDATE users SET password = ? WHERE username = ? AND email = ?;");
-					$stmt->bind_param("sss", $pass, $user, $email);
-					if(!$stmt->execute()){
-						echo "Error loading data into database.";
-					}
-				?>
 
 		    }
 
 		</script>
 	</head>
-	
+
 	<body>
 		<div id="wrapper">
 			<h1 id="title">TEST V1</h1>
 			<div id="nav">
 				<ul>
 					<li><a href="index.php">Home</a></li>
-					<li><a href="#accountPage.php">Account</a></li>	
+					<li><a href="#accountPage.php">Account</a></li>
 				</ul>
 			</div>
-		
+
 			<div id="content">
 				<div class="box">
 
-					<form name="passChangeForm" action="index.php" method="post" class="loginForm" onsubmit="return validateForm()">
+					<form name="passChangeForm" action="accountChangePassValidate.php" method="post" class="loginForm" onsubmit="return validateForm()">
 
 					<label class="labe" for="psw"><b>Password</b></label>
 		            <input class="textin" type="password" placeholder="Enter Password" name="password" required>
@@ -80,7 +61,7 @@
 		            </form>
 				</div>
 			</div>
-							
+
 			<div id="footer">
 				<p>Created by Jessy Liao</p>
 			</div>
