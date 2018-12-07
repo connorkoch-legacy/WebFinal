@@ -27,6 +27,14 @@
 	if(!$stmt->execute()){
 		echo "Error loading data into database.";
 	}
+	$stmt2 = $conn->prepare("UPDATE users SET `weight` = ?, `gender` = ? WHERE `id` = ?;");
+	$stmt2->bind_param("isi", $weight, $gender, $id);
+	$weight = $_POST["weight"];
+	$gender = $_POST["listt"];
+	if(!$stmt2->execute()){
+		echo "Error loading data into database.2";
+	}
+
 
 ?>
 

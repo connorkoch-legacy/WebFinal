@@ -93,7 +93,7 @@
 						</select>
 						<br>
 						<label>Weight:</label> <input type="text" name="weight" required> <br>
-						<label>Height:</label> <input id="height1" type="text" name="height"placeholder="optional"> <input id="height2" type="text" name="inch"placeholder="optional"> <br>
+						<label>Height:</label> <input id="height1" type="text" name="height" placeholder="optional"> <input id="height2" type="text" name="inch"placeholder="optional"> <br>
 						<label>Age:</label> <input type="text" name="age" placeholder="optional">
 					</p>
 				</div>
