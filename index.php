@@ -1,10 +1,8 @@
-
 <?php
 	session_start();
 ?>
-
 <!DOCTYPE>
-<html lang="en-US">
+<html>
 <?php
 	if($_SESSION['login'] == "false"){ //if login in session is not set
 		header("Location: loginPage.php");
@@ -102,11 +100,11 @@
 					<h1>Enter your 1 Rep Max below</h1>
 					<p>If you compete, put your 95% max to get a more accurate idea of where your strength is at.</p>
 					<p>
-						<label>Bench:</label> <input type="text" name="bench" required> <br>
-						<label>Squat:</label> <input type="text" name="squat" required> <br>
-						<label>Deadlift:</label> <input type="text" name="deadlift" required> <br>
-						<label>Overhead Press:</label> <input type="text" name="overheadpress" required> <br>
-						<label>Pull up:</label> <input type="text" name="pullup" required>
+						<label>Bench:</label> <input type="text" name="bench" placeholder="lbs"  required> <br>
+						<label>Squat:</label> <input type="text" name="squat" placeholder="lbs"  required> <br>
+						<label>Deadlift:</label> <input type="text" name="deadlift" placeholder="lbs"  required> <br>
+						<label>Overhead Press:</label> <input type="text" name="overheadpress" placeholder="lbs"  required> <br>
+						<label>Pull up:</label> <input type="text" name="pullup" placeholder="reps"  required>
 					</p>
 				</div>
 

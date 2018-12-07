@@ -1,11 +1,14 @@
-
 <?php
 	session_start();
 ?>
+<!DOCTYPE>
+<html>
+<?php
+	if($_SESSION['login'] == "false"){ //if login in session is not set
+		header("Location: loginPage.php");
+	}
 
-<!DOCTYPE HTML>
-<html lang="en-US">
-
+?>
 	<head>
 		<title>Fitness</title>
 		<meta charset="UTF-8">
@@ -14,7 +17,26 @@
 		<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 
 		<!-- D3.js -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8">
+		//JS code that checks if the user is idle for 15 minutes
+		var inactivityTime = function () {
+			var t;
+			window.onload = resetTimer;
+
+			document.onmousemove = resetTimer;
+			document.onkeypress = resetTimer;
+
+			function logout() {
+				alert("You are now logged out.")
+				location.href = 'loginPage.php'
+			}
+
+			function resetTimer() {
+				clearTimeout(t);
+				t = setTimeout(logout, 15 * 60 * 1000) //set timeout time to 15 minutes of idle
+			}
+		};
+		</script>
 
 	</head>
 

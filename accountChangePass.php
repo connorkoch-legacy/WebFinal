@@ -1,8 +1,14 @@
 <?php
-	session_start();
+session_start();
 ?>
-<!DOCTYPE>
+
+<!DOCTYPE html>
 <html>
+<?php
+    if($_SESSION['login'] == "false"){ //if login in session is not set
+        header("Location: loginPage.php");
+    }
+?>
 
 	<head>
 		<title>Fitness</title>
@@ -12,6 +18,24 @@
 		<link href='https://fonts.googleapis.com/css?family=Raleway'rel='stylesheet' type='text/css'>
 
 		<script>
+		//JS code that checks if the user is idle for 15 minutes
+		var inactivityTime = function () {
+			var t;
+			window.onload = resetTimer;
+
+			document.onmousemove = resetTimer;
+			document.onkeypress = resetTimer;
+
+			function logout() {
+				alert("You are now logged out.")
+				location.href = 'loginPage.php'
+			}
+
+			function resetTimer() {
+				clearTimeout(t);
+				t = setTimeout(logout, 15 * 60 * 1000) //set timeout time to 15 minutes of idle
+			}
+		};
 		    function validateForm() {
 		        var pw = document.forms["passChangeForm"]["password"].value;
 		        var pw2 = document.forms["passChangeForm"]["password2"].value;
@@ -33,11 +57,11 @@
 
 	<body>
 		<div id="wrapper">
-			<h1 id="title">TEST V1</h1>
+			<h1 id="title">Account Change</h1>
 			<div id="nav">
 				<ul>
 					<li><a href="index.php">Home</a></li>
-					<li><a href="#accountPage.php">Account</a></li>
+					<li><a href="accountPage.php">Account</a></li>
 				</ul>
 			</div>
 

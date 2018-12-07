@@ -1,4 +1,3 @@
-
 <?php
 session_destroy();
 session_start();
@@ -14,13 +13,31 @@ session_start();
     <link rel="stylesheet" href="layout.css">
 
     <script>
+    //JS code that checks if the user is idle for 15 minutes
+    var inactivityTime = function () {
+        var t;
+        window.onload = resetTimer;
+
+        document.onmousemove = resetTimer;
+        document.onkeypress = resetTimer;
+
+        function logout() {
+            alert("You are now logged out.")
+            location.href = 'loginPage.php'
+        }
+
+        function resetTimer() {
+            clearTimeout(t);
+            t = setTimeout(logout, 15 * 60 * 1000) //set timeout time to 15 minutes of idle
+        }
+    };
     function validateForm() {
         var email = document.forms["pwForm"]["email"].value;
         if (!(/\w+@\w+\.\w+/.test(email))) {
             alert("Email must be filled out with correct email syntax");
             return false;
         }
-		
+
         return true;
     }
     </script>
@@ -38,11 +55,11 @@ session_start();
             <input class="textin" type="text" placeholder="Enter Email" name="email" required>
 
             <input type="hidden" name="code" value="<?php echo substr(md5(uniqid(rand(), true)), 16, 16);?>">
-			
+
             <div class="submitbar">
                 <button class="login" type="submit">Verify Email</button>
             </div>
-			
+
             <div class="accountbar">
                 <a href="loginPage.php">Return to login</a>
             </div>

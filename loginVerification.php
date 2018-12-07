@@ -1,13 +1,29 @@
-
 <?php
-session_start();
+	session_start();
 ?>
-
-<!DOCTYPE html>
+<!DOCTYPE>
 <html>
 <head>
 
 <script>
+//JS code that checks if the user is idle for 15 minutes
+var inactivityTime = function () {
+	var t;
+	window.onload = resetTimer;
+
+	document.onmousemove = resetTimer;
+	document.onkeypress = resetTimer;
+
+	function logout() {
+		alert("You are now logged out.")
+		location.href = 'loginPage.php'
+	}
+
+	function resetTimer() {
+		clearTimeout(t);
+		t = setTimeout(logout, 15 * 60 * 1000) //set timeout time to 15 minutes of idle
+	}
+};
 <?php
 $conn = new mysqli("localhost", "root", "", "CSCI445");
 // prepare and bind

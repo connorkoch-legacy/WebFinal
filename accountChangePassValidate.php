@@ -1,8 +1,30 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 
 <script>
+//JS code that checks if the user is idle for 15 minutes
+var inactivityTime = function () {
+    var t;
+    window.onload = resetTimer;
+
+    document.onmousemove = resetTimer;
+    document.onkeypress = resetTimer;
+
+    function logout() {
+        alert("You are now logged out.")
+        location.href = 'loginPage.php'
+    }
+
+    function resetTimer() {
+        clearTimeout(t);
+        t = setTimeout(logout, 15 * 60 * 1000) //set timeout time to 15 minutes of idle
+    }
+};
 <?php
     $pass = $_COOKIE['pass'];
     setcookie("pass",$pass,time()+(86400*30),"/");

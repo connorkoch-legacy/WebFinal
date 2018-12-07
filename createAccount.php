@@ -1,4 +1,8 @@
 <?php
+	if($_SESSION['login'] == "false"){ //if login in session is not set
+		header("Location: loginPage.php");
+	}
+
 session_destroy();
 session_start();
 ?>
@@ -12,6 +16,24 @@ session_start();
     <link rel="stylesheet" href="layout.css">
 
     <script>
+    //JS code that checks if the user is idle for 15 minutes
+    var inactivityTime = function () {
+        var t;
+        window.onload = resetTimer;
+
+        document.onmousemove = resetTimer;
+        document.onkeypress = resetTimer;
+
+        function logout() {
+            alert("You are now logged out.")
+            location.href = 'loginPage.php'
+        }
+
+        function resetTimer() {
+            clearTimeout(t);
+            t = setTimeout(logout, 15 * 60 * 1000) //set timeout time to 15 minutes of idle
+        }
+    };
     function validateForm() {
         var user = document.forms["accountForm"]["username"].value;
         var email = document.forms["accountForm"]["email"].value;
