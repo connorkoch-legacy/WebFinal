@@ -1,3 +1,7 @@
+DROP DATABASE IF EXISTS CSCI445;
+CREATE DATABASE CSCI445;
+USE CSCI445;
+
 DROP TABLE IF EXISTS lifts;
 CREATE TABLE lifts (lift_id bigint unsigned, day datetime, bench integer, squat integer, deadlift integer, overhead integer, pullups integer);
 DROP TABLE IF EXISTS users;
